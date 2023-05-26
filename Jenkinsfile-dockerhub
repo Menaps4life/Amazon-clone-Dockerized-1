@@ -5,13 +5,13 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
      }
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('Delphine-dockerhub')
-    APP_NAME = "dngwenyi/delphine-ibtapp"
+    DOCKERHUB_CREDENTIALS = credentials('Naps-dockerhub')
+    APP_NAME = "Menaps4life/ndoapp"
     }
     stages { 
         stage('SCM Checkout') {
             steps{
-           git branch: 'main', url: 'https://github.com/dngwenyi/Amazon-clone-Dockerized.git'
+           git branch: 'main', url: 'https://github.com/Menaps4life/Amazon-clone-Dockerized-1.git'
             }
         }
         // run sonarqube test
@@ -37,7 +37,7 @@ pipeline {
         }
         stage('Trivy Scan (Aqua)') {
             steps {
-                sh 'trivy image dngwenyi/delphine-ibtapp:$BUILD_NUMBER'
+                sh 'trivy image $APP_NAME:$BUILD_NUMBER'
             }
        }
         stage('push image') {
