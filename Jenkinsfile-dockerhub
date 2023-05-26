@@ -6,7 +6,7 @@ pipeline {
      }
     environment {
     DOCKERHUB_CREDENTIALS = credentials('Naps-dockerhub')
-    APP_NAME = "Menaps4life/ndoapp"
+    APP_NAME = "Menaps4life/ndohapp"
     }
     stages { 
         stage('SCM Checkout') {
