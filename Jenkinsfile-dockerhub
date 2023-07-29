@@ -5,8 +5,8 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
      }
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('napoleon-dockerhub')
-    APP_NAME = "Menaps4life/naps-app"
+    DOCKERHUB_CREDENTIALS = credentials('ndoh-dockerhub')
+    APP_NAME = "Menaps4life/amazon"
     }
     stages { 
         stage('SCM Checkout') {
@@ -42,7 +42,7 @@ pipeline {
        }
         stage('push image') {
             steps{
-                sh 'docker push $APP_NAME:$BUILD_NUMBER'
+                sh 'docker push $APP_NAME:$BUILD_NUMBER '
             }
         }
         stage('Trigger ManifestUpdate') {
