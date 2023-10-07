@@ -5,7 +5,7 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
      }
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('ndohche-dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('napsy-dockerhub')
     APP_NAME = "menaps4life/amazon-app"
     }
     stages { 
